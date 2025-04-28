@@ -7,6 +7,9 @@ Author: Vianney Kimuri
 
 function findLongestPrefix(words) {
     let lookup = {};
+
+    // Check if the array is empty
+    if (words.length === 0) return "";
     
     // Create and add all possible prefixes to lookup object
     for (let i = 0; i < words.length; i++) {
@@ -33,14 +36,12 @@ function findLongestPrefix(words) {
 
     // Compare keys and values, find the longest key, with the highest frequency
     for (const [key , value] of Object.entries(lookup)) {
-        if (value > maxFreq) {
+        if (value > maxFreq && value === words.length) {
             maxFreq = value;
-            // console.log(maxFreq);
         }
 
-        if (key.length > maxLen && value == maxFreq && value > 1) {
+        if (key.length > maxLen && value === maxFreq && value > 1) {
             resultPrefix = key;
-            // console.log(resultPrefix);
         } else {
             return resultPrefix;
         }
@@ -50,5 +51,7 @@ function findLongestPrefix(words) {
 
 }
 
-console.log(findLongestPrefix(["dog", "racecar", "car"]))
+// console.log(findLongestPrefix(["dog", "racecar", "car"]))
 // console.log(findLongestPrefix(["flower", "flow", "flight"]))
+// console.log(findLongestPrefix( ["apple", "app", "apricot"]))
+// console.log(findLongestPrefix(["abc", "abcd", "xyz"]))
