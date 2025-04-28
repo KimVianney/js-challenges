@@ -25,7 +25,7 @@ function majorityElement(nums) {
     }
 
     // Check all key-value pairs in object
-    // if any pair, has a value which is 1
+    // if any pair, has a value which is greater or equal to majority threshold
     // return its key, as an integer
     for (const [key, value] of Object.entries(objTracker)){
         if (value >= majorityThreshold) {
